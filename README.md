@@ -31,4 +31,4 @@ This is a fully functional web application built using **ASP.NET Core MVC** (wit
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/EventRegistration.git
+git clone https://github.com/Viva03/EventRegistration.git
