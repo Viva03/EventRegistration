@@ -1,0 +1,115 @@
+﻿@model EventRegistration.Models.Registration
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="page-header">
+    <div class="container">
+        <h1><i class="fas fa-user-plus"></i> Event Registration</h1>
+        <p>Join us for an amazing tech conference experience</p>
+    </div>
+</div>
+
+<div class="registration-section">
+    <div class="container">
+        <div class="registration-form-container">
+            <form asp-action="Register" method="post" class="registration-form">
+                @Html.AntiForgeryToken()
+
+                <div class="form-header">
+                    <h2>Register for Tech Innovation Summit 2025</h2>
+                    <p>Please fill in all the required information</p>
+                </div>
+
+                <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label asp-for="Name" class="form-label">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter your full name" />
+                        <span asp-validation-for="Name" class="validation-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-label">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+                        <span asp-validation-for="Email" class="validation-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="form-label">
+                            <i class="fas fa-phone"></i> Phone Number
+                        </label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
+                        <span asp-validation-for="PhoneNumber" class="validation-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label asp-for="College" class="form-label">
+                            <i class="fas fa-university"></i> College/Institution
+                        </label>
+                        <input asp-for="College" class="form-control" placeholder="Enter your college name" />
+                        <span asp-validation-for="College" class="validation-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group form-group-half">
+                        <label asp-for="Department" class="form-label">
+                            <i class="fas fa-graduation-cap"></i> Department
+                        </label>
+                        <input asp-for="Department" class="form-control" placeholder="e.g., Computer Science" />
+                        <span asp-validation-for="Department" class="validation-error"></span>
+                    </div>
+                    <div class="form-group form-group-half">
+                        <label asp-for="Year" class="form-label">
+                            <i class="fas fa-calendar"></i> Year of Study
+                        </label>
+                        <select asp-for="Year" class="form-control">
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                        <span asp-validation-for="Year" class="validation-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-check"></i> Complete Registration
+                    </button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                </div>
+            </form>
+
+            <div class="registration-info">
+                <h3>What to Expect</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Instant confirmation via email</li>
+                    <li><i class="fas fa-check"></i> Networking opportunities</li>
+                    <li><i class="fas fa-check"></i> Certificate of participation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

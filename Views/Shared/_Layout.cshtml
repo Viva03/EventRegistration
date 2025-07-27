@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tech Innovation Summit</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-rocket"></i>
+                        <span>TechSummit</span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a asp-area="" asp-controller="Registration" asp-action="Register" class="nav-link">
+                        <i class="fas fa-user-plus"></i> Register
+                    </a>
+                    <a asp-area="" asp-controller="Contact" asp-action="Index" class="nav-link">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-rocket"></i> Founders Club Recruitment 2025</h3>
+                <p>Join us for an unforgettable technology conference experience.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Registration" asp-action="Register">Register</a></li>
+                    <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> BEL BLOCK DEI</p>
+                <p><i class="fas fa-phone"></i> +91 8303459955</p>
+                <p><i class="fas fa-envelope"></i> founderclub@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Founders Club (VIVA). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿@model EventRegistration.Models.EventInfo
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">@Model.Name</h1>
+            <p class="hero-subtitle">@Model.Description</p>
+            <div class="hero-info">
+                <div class="info-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>@Model.Date</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>@Model.Location</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a asp-controller="Registration" asp-action="Register" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Register Now
+                </a>
+                <a href="#event-details" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-element">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="floating-element">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="floating-element">
+                <i class="fas fa-cloud"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="event-details" class="event-details">
+    <div class="container">
+        <h2 class="section-title">Event Highlights</h2>
+        <div class="features-grid">
+            @foreach (var feature in Model.Features)
+            {
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        @if (feature.Contains("keynote"))
+                        {
+                            <i class="fas fa-microphone"></i>
+                        }
+                        else if (feature.Contains("workshop"))
+                        {
+                            <i class="fas fa-laptop-code"></i>
+                        }
+                        else if (feature.Contains("networking"))
+                        {
+                            <i class="fas fa-users"></i>
+                        }
+                        else if (feature.Contains("innovation"))
+                        {
+                            <i class="fas fa-lightbulb"></i>
+                        }
+                        else if (feature.Contains("lunch"))
+                        {
+                            <i class="fas fa-utensils"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-certificate"></i>
+                        }
+                    </div>
+                    <h3>@feature.Split(' ').Take(3).Aggregate((a, b) => a + " " + b)</h3>
+                    <p>@feature</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Attendees</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Speakers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Workshops</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Days</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Join Us?</h2>
+        <p>Don't miss out on this incredible opportunity to connect with industry leaders and expand your knowledge.</p>
+        <a asp-controller="Registration" asp-action="Register" class="btn btn-primary btn-large">
+            <i class="fas fa-rocket"></i> Register Today
+        </a>
+    </div>
+</section>
